@@ -23,7 +23,7 @@ export function Dashboard() {
     <div className="min-h-screen bg-background text-foreground">
       <Toaster />
       <div className="mx-auto max-w-[1200px] px-4 pb-16 pt-8 sm:px-6">
-        <Header snapshot={snapshot.data} />
+        <Header snapshot={snapshot.data} offline={offline} />
         <ControlBar snapshot={snapshot.data} />
 
         <div className="mt-6 space-y-6">
