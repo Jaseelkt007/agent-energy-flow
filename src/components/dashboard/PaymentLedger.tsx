@@ -23,7 +23,55 @@ export function PaymentLedger({ payments }: { payments: Payment[] | null }) {
         </div>
       </div>
 
-      <div className="overflow-hidden rounded-md border border-border">
+      {/* Mobile: card list */}
+      <div className="space-y-2 sm:hidden">
+        <AnimatePresence initial={false}>
+          {rows.length === 0 && (
+            <p className="rounded-md border border-border px-4 py-8 text-center text-[13px] text-muted-foreground">
+              No payments yet. Plug in the EV to start.
+            </p>
+          )}
+          {rows.map((p) => (
+            <motion.div
+              key={p.tx_id}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="rounded-md border border-border p-3"
+            >
+              <div className="flex items-center justify-between gap-2 text-[12px]">
+                <span className="text-muted-foreground">{timeAgo(p.ts)}</span>
+                <a
+                  href={loraLink(p)}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-1 font-mono text-[11px] text-muted-foreground transition-colors hover:text-accent"
+                >
+                  {p.tx_id.slice(0, 10)}… <ExternalLink size={11} />
+                </a>
+              </div>
+              <div className="mt-2 flex items-baseline justify-between gap-3">
+                <div className="flex items-baseline gap-1">
+                  <span className="tabular text-[15px] font-semibold text-foreground">
+                    {p.kwh.toFixed(2)}
+                  </span>
+                  <span className="text-[11px] text-muted-foreground">kWh</span>
+                </div>
+                <div className="flex items-baseline gap-1">
+                  <span className="tabular text-[15px] font-semibold text-foreground">
+                    {p.price_paid_usdc.toFixed(4)}
+                  </span>
+                  <span className="text-[11px] text-muted-foreground">USDC</span>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </AnimatePresence>
+      </div>
+
+      {/* Desktop: table */}
+      <div className="hidden overflow-hidden rounded-md border border-border sm:block">
         <table className="w-full text-[13px]">
           <thead>
             <tr className="border-b border-border bg-background/40 text-[11px] uppercase tracking-[0.08em] text-muted-foreground">

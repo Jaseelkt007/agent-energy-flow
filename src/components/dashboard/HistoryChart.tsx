@@ -17,7 +17,7 @@ export function HistoryChart({ data }: { data: HistoryPoint[] | null }) {
   }));
 
   return (
-    <div className="h-[260px] w-full">
+    <div className="h-[200px] w-full sm:h-[260px]">
       <ResponsiveContainer width="100%" height="100%">
         <LineChart data={formatted} margin={{ top: 8, right: 16, bottom: 8, left: 8 }}>
           <CartesianGrid stroke="var(--color-border)" strokeDasharray="2 4" vertical={false} />

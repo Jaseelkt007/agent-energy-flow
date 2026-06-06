@@ -18,7 +18,7 @@ function icon(type: EventItem["type"]) {
 export function EventFeed({ events }: { events: EventItem[] | null }) {
   const rows = (events ?? []).slice(0, 60);
   return (
-    <div className="max-h-[420px] overflow-y-auto">
+    <div className="max-h-[320px] overflow-y-auto sm:max-h-[420px]">
       <AnimatePresence initial={false}>
         {rows.length === 0 && (
           <p className="py-8 text-center text-[13px] text-muted-foreground">
