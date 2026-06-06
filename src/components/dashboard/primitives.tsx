@@ -13,7 +13,7 @@ export function Section({
   className?: string;
 }) {
   return (
-    <section className={cn("rounded-lg border border-border bg-surface", className)}>
+    <section className={cn("rounded-xl border border-border bg-surface shadow-[0_1px_2px_rgba(15,23,42,0.04)]", className)}>
       {(title || right) && (
         <header className="flex items-center justify-between border-b border-border px-4 py-3 sm:px-5">
           {title && (

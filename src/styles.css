@@ -38,14 +38,14 @@
 
 :root {
   --radius: 0.5rem;
-  --background: oklch(1 0 0);                /* #FFFFFF */
-  --surface: oklch(0.985 0 0);               /* ~#FAFAFA */
-  --border: oklch(0.929 0 0);                /* ~#EAEAEA */
-  --foreground: oklch(0.155 0 0);            /* ~#111111 */
-  --muted-foreground: oklch(0.553 0.012 264.531); /* ~#6B7280 */
-  --accent: oklch(0.696 0.17 162.48);        /* emerald #10B981 */
-  --warning: oklch(0.769 0.169 70.08);       /* amber #F59E0B */
-  --danger: oklch(0.637 0.237 25.331);       /* red #EF4444 */
+  --background: oklch(0.985 0.003 240);      /* very light gray */
+  --surface: oklch(1 0 0);                   /* white cards */
+  --border: oklch(0.92 0.005 240);           /* soft border */
+  --foreground: oklch(0.18 0.02 250);        /* slate-900 ish */
+  --muted-foreground: oklch(0.55 0.02 250);  /* slate-500 */
+  --accent: oklch(0.66 0.17 152);            /* emerald green */
+  --warning: oklch(0.769 0.169 70.08);
+  --danger: oklch(0.637 0.237 25.331);
 }
 
 .dark {
