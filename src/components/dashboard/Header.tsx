@@ -3,7 +3,7 @@ import type { Snapshot } from "@/lib/energy-api";
 import { HealthDot } from "./primitives";
 import { useTheme } from "@/hooks/useTheme";
 
-export function Header({ snapshot }: { snapshot: Snapshot | null }) {
+export function Header({ snapshot, offline }: { snapshot: Snapshot | null; offline?: boolean }) {
   const { theme, toggle } = useTheme();
   const health = snapshot?.health ?? { producer: "down", x402: "down", agent: "down" };
   const stale = snapshot?.producer.stale;
@@ -29,6 +29,7 @@ export function Header({ snapshot }: { snapshot: Snapshot | null }) {
       </div>
       <div className="flex items-center gap-5">
         <div className="flex items-center gap-4">
+          <HealthDot label={offline ? "Offline" : "Online"} state={offline ? "down" : "ok"} />
           <HealthDot label="Producer" state={health.producer} />
           <HealthDot label="x402" state={health.x402} />
           <HealthDot label="Agent" state={health.agent} />
