@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Home, Zap, Store, Receipt, Bot, Settings, ArrowRight } from "lucide-react";
 import type { Snapshot } from "@/lib/energy-api";
 import { cn } from "@/lib/utils";
@@ -13,17 +14,14 @@ const NAV: Item[] = [
 ];
 
 export function Sidebar({
-  snapshot,
   offline,
   onNavigate,
 }: {
-  snapshot: Snapshot | null;
+  snapshot?: Snapshot | null;
   offline?: boolean;
   onNavigate?: () => void;
 }) {
-  const [active, setActive] = (typeof window !== "undefined"
-    ? require("react").useState("Dashboard")
-    : ["Dashboard", () => {}]) as [string, (s: string) => void];
+  const [active, setActive] = useState("Dashboard");
 
   return (
     <aside className="flex h-full w-full flex-col gap-6 border-r border-border bg-surface p-5">
