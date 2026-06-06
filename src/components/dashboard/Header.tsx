@@ -3,7 +3,7 @@ import type { Snapshot } from "@/lib/energy-api";
 import { HealthDot } from "./primitives";
 import { useTheme } from "@/hooks/useTheme";
 
-export function Header({ snapshot }: { snapshot: Snapshot | null }) {
+export function Header({ snapshot, offline }: { snapshot: Snapshot | null; offline?: boolean }) {
   const { theme, toggle } = useTheme();
   const health = snapshot?.health ?? { producer: "down", x402: "down", agent: "down" };
   const stale = snapshot?.producer.stale;
