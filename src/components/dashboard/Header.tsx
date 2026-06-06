@@ -29,6 +29,7 @@ export function Header({ snapshot, offline }: { snapshot: Snapshot | null; offli
       </div>
       <div className="flex items-center gap-5">
         <div className="flex items-center gap-4">
+          <HealthDot label={offline ? "Offline" : "Online"} state={offline ? "down" : "ok"} />
           <HealthDot label="Producer" state={health.producer} />
           <HealthDot label="x402" state={health.x402} />
           <HealthDot label="Agent" state={health.agent} />
