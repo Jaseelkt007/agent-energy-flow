@@ -17,6 +17,7 @@ export function Dashboard() {
   const payments = usePolling(api.payments, 2000);
   const events = usePolling(api.events, 2000);
   const history = usePolling(api.history, 2000);
+  const offline = Boolean(snapshot.error) && !snapshot.data;
 
   return (
     <div className="min-h-screen bg-background text-foreground">
