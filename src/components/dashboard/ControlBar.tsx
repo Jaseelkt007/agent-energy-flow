@@ -26,8 +26,8 @@ export function ControlBar({ snapshot }: { snapshot: Snapshot | null }) {
   const estCost = clampedKwh * price;
 
   return (
-    <div className="sticky top-0 z-20 -mx-4 mt-4 border-b border-border bg-background/85 px-4 py-3 backdrop-blur sm:-mx-6 sm:mt-6 sm:px-6">
-      <div className="mx-auto flex max-w-[1200px] flex-col gap-2 sm:flex-row sm:flex-wrap sm:items-center">
+    <div className="mt-4 rounded-xl border border-border bg-surface px-3 py-3 shadow-[0_1px_2px_rgba(15,23,42,0.04)] sm:mt-6 sm:px-4">
+      <div className="mx-auto flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:items-center">
         <button
           type="button"
           disabled={!!busy}
