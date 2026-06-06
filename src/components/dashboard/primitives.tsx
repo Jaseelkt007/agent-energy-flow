@@ -15,7 +15,7 @@ export function Section({
   return (
     <section className={cn("rounded-lg border border-border bg-surface", className)}>
       {(title || right) && (
-        <header className="flex items-center justify-between px-5 py-3 border-b border-border">
+        <header className="flex items-center justify-between border-b border-border px-4 py-3 sm:px-5">
           {title && (
             <h2 className="text-[11px] font-semibold uppercase tracking-[0.08em] text-muted-foreground">
               {title}
@@ -24,7 +24,7 @@ export function Section({
           {right}
         </header>
       )}
-      <div className="p-5">{children}</div>
+      <div className="p-4 sm:p-5">{children}</div>
     </section>
   );
 }
@@ -101,15 +101,15 @@ export function MetricCard({
   decimals?: number;
 }) {
   return (
-    <div className="rounded-lg border border-border bg-surface p-5">
-      <div className="text-[11px] font-semibold uppercase tracking-[0.08em] text-muted-foreground">
+    <div className="rounded-lg border border-border bg-surface p-3 sm:p-5">
+      <div className="text-[10px] font-semibold uppercase tracking-[0.08em] text-muted-foreground sm:text-[11px]">
         {label}
       </div>
-      <div className="mt-2 flex items-baseline gap-1.5">
-        <span className="text-[28px] font-semibold leading-none tabular text-foreground">
+      <div className="mt-1.5 flex items-baseline gap-1.5 sm:mt-2">
+        <span className="text-[20px] font-semibold leading-none tabular text-foreground sm:text-[28px]">
           <AnimatedNumber value={value} decimals={decimals} />
         </span>
-        {unit && <span className="text-xs text-muted-foreground">{unit}</span>}
+        {unit && <span className="text-[10px] text-muted-foreground sm:text-xs">{unit}</span>}
       </div>
     </div>
   );

@@ -49,7 +49,7 @@ export function PolicyPanel({ snapshot }: { snapshot: Snapshot | null }) {
       <button
         type="button"
         onClick={() => setOpen((o) => !o)}
-        className="flex w-full items-center justify-between px-5 py-3 text-left"
+        className="flex min-h-[44px] w-full items-center justify-between px-4 py-3 text-left sm:px-5"
       >
         <span className="text-[11px] font-semibold uppercase tracking-[0.08em] text-muted-foreground">
           Agent Policy
@@ -63,7 +63,7 @@ export function PolicyPanel({ snapshot }: { snapshot: Snapshot | null }) {
         />
       </button>
       {open && (
-        <div className="space-y-5 border-t border-border p-5">
+        <div className="space-y-5 border-t border-border p-4 sm:p-5">
           <Slider
             label="Price per kWh (producer)"
             unit="USDC"

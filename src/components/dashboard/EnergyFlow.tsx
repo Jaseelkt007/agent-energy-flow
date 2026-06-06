@@ -6,8 +6,8 @@ export function EnergyFlow({ s }: { s: Snapshot | null }) {
   const paying = state === "PAYING";
 
   return (
-    <div className="relative h-[140px]">
-      <svg viewBox="0 0 320 140" className="h-full w-full" aria-hidden>
+    <div className="relative h-[120px] sm:h-[140px]">
+      <svg viewBox="0 0 320 140" preserveAspectRatio="xMidYMid meet" className="h-full w-full" aria-hidden>
         {/* nodes */}
         <Node x={20} y={70} label="Solar" />
         <Node x={160} y={70} label="x402" />
