@@ -1,11 +1,9 @@
 import { useState } from "react";
-import { Plug, Square, RotateCcw, Zap } from "lucide-react";
+import { Square, RotateCcw, Zap } from "lucide-react";
 import { toast } from "sonner";
 import { postControl, type Snapshot } from "@/lib/energy-api";
-import { cn } from "@/lib/utils";
 
 export function ControlBar({ snapshot }: { snapshot: Snapshot | null }) {
-  const plugged = snapshot?.producer.ev_plugged ?? false;
   const price = snapshot?.producer.price_per_kwh ?? 0;
   const [busy, setBusy] = useState<string | null>(null);
   const [kwh, setKwh] = useState<number>(1.1);
@@ -28,27 +26,6 @@ export function ControlBar({ snapshot }: { snapshot: Snapshot | null }) {
   return (
     <div className="mt-4 rounded-xl border border-border bg-surface px-3 py-3 shadow-[0_1px_2px_rgba(15,23,42,0.04)] sm:mt-6 sm:px-4">
       <div className="mx-auto flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:items-center">
-        <button
-          type="button"
-          disabled={!!busy}
-          onClick={() =>
-            run(
-              plugged ? "Unplug" : "Plug in",
-              () => postControl("/control/ev", { plugged: !plugged }),
-              plugged ? "EV unplugged" : "EV plugged in — agent active",
-            )
-          }
-          className={cn(
-            "inline-flex h-11 w-full items-center justify-center gap-2 rounded-md px-4 text-sm font-medium transition-colors disabled:opacity-60 sm:h-10 sm:w-auto sm:justify-start",
-            plugged
-              ? "border border-border bg-transparent text-foreground hover:bg-surface"
-              : "bg-accent text-white hover:opacity-90",
-          )}
-        >
-          <Plug size={15} />
-          {plugged ? "Unplug" : "Plug in EV & Charge"}
-        </button>
-
         <div className="flex w-full flex-col gap-2 rounded-md border border-border bg-transparent p-3 sm:inline-flex sm:h-10 sm:w-auto sm:flex-row sm:items-center sm:gap-3 sm:p-0 sm:px-3">
           <div className="flex items-center justify-between gap-3 sm:contents">
             <span className="text-[11px] uppercase tracking-[0.08em] text-muted-foreground sm:text-[12px]">
