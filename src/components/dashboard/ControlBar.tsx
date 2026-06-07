@@ -1,11 +1,9 @@
 import { useState } from "react";
-import { Plug, Square, RotateCcw, Zap } from "lucide-react";
+import { Square, RotateCcw, Zap } from "lucide-react";
 import { toast } from "sonner";
 import { postControl, type Snapshot } from "@/lib/energy-api";
-import { cn } from "@/lib/utils";
 
 export function ControlBar({ snapshot }: { snapshot: Snapshot | null }) {
-  const plugged = snapshot?.producer.ev_plugged ?? false;
   const price = snapshot?.producer.price_per_kwh ?? 0;
   const [busy, setBusy] = useState<string | null>(null);
   const [kwh, setKwh] = useState<number>(1.1);
